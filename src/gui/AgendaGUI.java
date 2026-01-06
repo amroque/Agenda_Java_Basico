@@ -12,6 +12,7 @@ public class AgendaGUI extends javax.swing.JFrame {
     String direccionArreglo[] = new String[10];
     String telefonoArreglo[] = new String[10];
     String fecNacArreglo[] = new String[10];
+    int indice;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AgendaGUI.class.getName());
 
@@ -283,55 +284,6 @@ public class AgendaGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void mostrarValores(){
-         //INE
-        ineArreglo[0]="YAYT102193HRETHEDC";
-        ineArreglo[1]="HAYT102193HRETHEUC";
-        ineArreglo[2]="JAYT102193HRETHEDC";
-        ineArreglo[3]="YAIO102193HRETHEDC";
-        ineArreglo[4]="GHVT102193HRETHEDC";
-        ineArreglo[5]="YAOP102193HRETHEDC";
-        ineArreglo[6]="REYT102193HRETHEDC";
-        //Nombre
-        nombresArreglo[0]="Juan";
-        nombresArreglo[1]="Pedro";
-        nombresArreglo[2]="Yoan";
-        nombresArreglo[3]="Silvio";
-        nombresArreglo[4]="Pablo";
-        nombresArreglo[5]="Leonis";
-        nombresArreglo[6]="Maritza";
-        //Apellido
-        apellidosArreglo[0]="Perez";
-        apellidosArreglo[1]="Santos";
-        apellidosArreglo[2]="Lopez";
-        apellidosArreglo[3]="Acosta";
-        apellidosArreglo[4]="Padilla";
-        apellidosArreglo[5]="Roque";
-        apellidosArreglo[6]="Hernandez";
-        //Direccion
-        direccionArreglo[0]="Centro, Cuernavaca";
-        direccionArreglo[1]="Centro, Jiutepec";
-        direccionArreglo[2]="Chipitlan, Cuernavaca";
-        direccionArreglo[3]="Polvorin, Cuernavaca";
-        direccionArreglo[4]="Ave Universidad, Cuernavaca";
-        direccionArreglo[5]="Ocotepec, Morelos";
-        direccionArreglo[6]="Temixco, Morelos";
-        //Teléfono
-        telefonoArreglo[0]="5587462135";
-        telefonoArreglo[1]="7778856211";
-        telefonoArreglo[2]="7778856219";
-        telefonoArreglo[3]="77788500219";
-        telefonoArreglo[4]="77784400219";
-        telefonoArreglo[5]="55784400219";
-        telefonoArreglo[6]="77789400220";
-        //Fecha de Nacimiento
-        fecNacArreglo[0]="29/04/1996";
-        fecNacArreglo[1]="10/10/2000";
-        fecNacArreglo[2]="13/05/1999";
-        fecNacArreglo[3]="29/04/2002";
-        fecNacArreglo[4]="05/02/1997";
-        fecNacArreglo[5]="29/04/1996";
-        fecNacArreglo[6]="29/04/1996";
-        //Mostrar valores en los componentes correspondientes
         txtNombre.setText(nombresArreglo[Integer.parseInt(txtIndice.getText())]);
         txtApellidos.setText(apellidosArreglo[Integer.parseInt(txtIndice.getText())]);
         txtFnac.setText(fecNacArreglo[Integer.parseInt(txtIndice.getText())]);
@@ -349,7 +301,7 @@ public class AgendaGUI extends javax.swing.JFrame {
 
     private void btnIndiceMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIndiceMasActionPerformed
         try {
-        int indice = Integer.parseInt(txtIndice.getText());          
+        indice = Integer.parseInt(txtIndice.getText());          
         if (indice < 9) {
             indice += 1;
             txtIndice.setText(String.valueOf(indice));
@@ -363,7 +315,7 @@ public class AgendaGUI extends javax.swing.JFrame {
 
     private void btnIndiceMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIndiceMenosActionPerformed
         try {
-            int indice = Integer.parseInt(txtIndice.getText());
+            indice = Integer.parseInt(txtIndice.getText());
             if (indice > 0) {
                 indice -= 1;
                 txtIndice.setText(String.valueOf(indice));
@@ -375,8 +327,23 @@ public class AgendaGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIndiceMenosActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+      indice=Integer.parseInt(txtIndice.getText());
+      nombresArreglo[indice]=txtNombre.getText();
+      apellidosArreglo[indice]=txtApellidos.getText();
+      ineArreglo[indice]=txtINE.getText();
+      direccionArreglo[indice]=txtDireccion.getText();
+      telefonoArreglo[indice]=txtTelefono.getText();
+      fecNacArreglo[indice]=txtFnac.getText();
+      txtNombre.setText("");
+      txtApellidos.setText("");
+      txtTelefono.setText("");
+      txtDireccion.setText("");
+      txtFnac.setText("");
+      txtINE.setText("");
+      indice+=1;
+      txtIndice.setText(String.valueOf(indice));
       
-        mostrarValores();
+       
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     
