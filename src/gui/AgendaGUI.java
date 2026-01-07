@@ -342,8 +342,6 @@ public class AgendaGUI extends javax.swing.JFrame {
       txtINE.setText("");
       indice+=1;
       txtIndice.setText(String.valueOf(indice));
-      
-       
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     
